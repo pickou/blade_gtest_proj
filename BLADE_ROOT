@@ -1,0 +1,83 @@
+global_config(
+    duplicated_source_action = 'none',
+)
+
+cc_test_config(
+    heap_check = 'strict',
+    gperftools_libs = 'thirdparty/perftools:tcmalloc',
+    gperftools_debug_libs = 'thirdparty/perftools:tcmalloc_debug',
+    gtest_libs = 'thirdparty/gtest:gtest',
+    gtest_main_libs = 'thirdparty/gtest:gtest_main',
+    pprof_path = 'thirdparty/perftools/bin/pprof',
+)
+
+cc_config(
+    warnings = [
+        '-Wall',
+        '-Wextra',
+        # disable some warnings enabled by Wextra
+        '-Wno-unused-but-set-variable',
+        '-Wno-unused-variable',
+        '-Wno-unused-parameter',
+        '-Wno-unused-local-typedefs',
+        '-Wno-missing-field-initializers',
+        '-Wno-deprecated-declarations',
+        # other useful warnings
+        '-Wendif-labels',
+        '-Wfloat-equal',
+        '-Wformat=2',
+        '-Wframe-larger-than=69632', # A 64k buffer and other small vars
+        '-Wmissing-include-dirs',
+        '-Wpointer-arith',
+        '-Wwrite-strings',
+        # error flags
+        '-Werror=char-subscripts',
+        '-Werror=comments',
+        '-Werror=conversion-null',
+        '-Werror=empty-body',
+        '-Werror=endif-labels',
+        '-Werror=format',
+        '-Werror=format-nonliteral',
+        '-Werror=missing-include-dirs',
+        '-Werror=overflow',
+        '-Werror=parentheses',
+        '-Werror=reorder',
+        '-Werror=return-type',
+        '-Werror=sequence-point',
+        '-Werror=sign-compare',
+        '-Werror=switch',
+        '-Werror=type-limits',
+        '-Werror=uninitialized',
+        # Masked it at first
+        # '-Werror=unused-function',
+        '-Werror=unused-label',
+        '-Werror=unused-result',
+        '-Werror=unused-value',
+        # '-Werror=unused-variable',
+        '-Werror=write-strings',
+    ],
+    # C++ only warning flags
+    cxx_warnings = [
+        '-Wno-invalid-offsetof',
+        '-Wnon-virtual-dtor',
+        '-Woverloaded-virtual',
+        '-Wvla',
+        '-Werror=non-virtual-dtor',
+        # '-Werror=overloaded-virtual',
+        '-Werror=vla',
+    ],
+    # C only warning flags
+    c_warnings = [
+        '-Werror-implicit-function-declaration'
+    ],
+    cflags = [
+        '-std=gnu11',
+        # '-fsanitize=address',
+    ],
+    cxxflags = [
+        '-std=c++11',
+        # '-static-libasan',
+    ],
+    cpplint = 'common/tools/cpplint.py',
+#    optimize = ['-O3'],
+)
