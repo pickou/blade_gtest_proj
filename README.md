@@ -1,7 +1,7 @@
 # blade_gtest_proj
 A c/c++ project initialized with blade &amp;&amp; gtest
 
-## Project structure
+## 1. Project structure
 ```
 blade_gtest_proj/
 |-- BLADE_ROOT
@@ -19,7 +19,7 @@ blade_gtest_proj/
 + **docs** 说明文档、设计文档等
 + **proj** 项目源代码
 
-## First try
+## 2. First try
 + 第一步
 编写了一个plus函数，放在proj/src/plus.c中，
 ```
@@ -45,7 +45,7 @@ int plus(int a, int b) {
 运行```blade test```可以进行单元测试
 ![](docs/png/blade_test.png)
 
-## more
+## 3. more
 关于blade，请参考https://github.com/chen3feng/blade-build.git
 
 关于gtest，请参考https://github.com/google/googletest.git
