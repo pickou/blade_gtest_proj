@@ -46,6 +46,7 @@ int plus(int a, int b) {
 ![](docs/png/blade_test.png)
 
 ## more
-关于blade，请参考
-关于gtest，请参考
+关于blade，请参考https://github.com/chen3feng/blade-build.git
+
+关于gtest，请参考https://github.com/google/googletest.git
 
